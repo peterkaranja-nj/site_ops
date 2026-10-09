@@ -1,0 +1,17 @@
+[
+ {
+  "doctype": "Custom Field",
+  "dt": "Material Request",
+  "fieldname": "custom_purchase_requisition",
+  "fieldtype": "Link",
+  "insert_after": "schedule_date",
+  "label": "Purchase Requisition",
+  "module": "Site Ops",
+  "name": "Material Request-custom_purchase_requisition",
+  "no_copy": 1,
+  "options": "Purchase Requisition",
+  "print_hide": 1,
+  "read_only": 1,
+  "search_index": 1
+ }
+]

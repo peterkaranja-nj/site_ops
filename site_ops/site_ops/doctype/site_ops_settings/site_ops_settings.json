@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "creation": "2026-10-09 09:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "budget_section",
+  "enforce_project_budget",
+  "approval_section",
+  "director_approval_threshold",
+  "stock_section",
+  "stock_alert_enabled",
+  "stock_alert_role",
+  "last_stock_alert_on"
+ ],
+ "fields": [
+  {
+   "fieldname": "budget_section",
+   "fieldtype": "Section Break",
+   "label": "Project Budget"
+  },
+  {
+   "default": "1",
+   "description": "Block Purchase Orders that would take a Project past its Estimated Cost.",
+   "fieldname": "enforce_project_budget",
+   "fieldtype": "Check",
+   "label": "Enforce Project Budget on Purchase Orders"
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval Routing"
+  },
+  {
+   "default": "0",
+   "description": "Requisitions at or above this amount need Director approval. Leave at 0 to require it on every requisition.",
+   "fieldname": "director_approval_threshold",
+   "fieldtype": "Currency",
+   "label": "Director Approval Threshold"
+  },
+  {
+   "fieldname": "stock_section",
+   "fieldtype": "Section Break",
+   "label": "Stock Alerts"
+  },
+  {
+   "default": "1",
+   "fieldname": "stock_alert_enabled",
+   "fieldtype": "Check",
+   "label": "Send Daily Low Stock Alert"
+  },
+  {
+   "default": "Purchase Manager",
+   "depends_on": "stock_alert_enabled",
+   "fieldname": "stock_alert_role",
+   "fieldtype": "Link",
+   "label": "Notify Role",
+   "mandatory_depends_on": "stock_alert_enabled",
+   "options": "Role"
+  },
+  {
+   "fieldname": "last_stock_alert_on",
+   "fieldtype": "Date",
+   "label": "Last Alert Sent On",
+   "no_copy": 1,
+   "read_only": 1
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-10-09 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Site Ops",
+ "name": "Site Ops Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

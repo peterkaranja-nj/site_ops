@@ -1,0 +1,56 @@
+{
+ "charts": [],
+ "content": "[{\"id\": \"soHeadProc\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Procurement</b></span>\", \"col\": 12}}, {\"id\": \"soShortPR\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Purchase Requisition\", \"col\": 3}}, {\"id\": \"soShortDash\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Procurement Dashboard\", \"col\": 3}}, {\"id\": \"soShortMR\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Material Request\", \"col\": 3}}, {\"id\": \"soShortPO\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Purchase Order\", \"col\": 3}}, {\"id\": \"soSpacer\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"soHeadCfg\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Configuration</b></span>\", \"col\": 12}}, {\"id\": \"soShortCfg\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Site Ops Settings\", \"col\": 3}}]",
+ "creation": "2026-10-09 09:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "shopping-cart",
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "Site Ops",
+ "links": [],
+ "modified": "2026-10-09 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Site Ops",
+ "name": "Site Ops",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "roles": [],
+ "sequence_id": 50,
+ "shortcuts": [
+  {
+   "doc_view": "List",
+   "label": "Purchase Requisition",
+   "link_to": "Purchase Requisition",
+   "type": "DocType"
+  },
+  {
+   "label": "Procurement Dashboard",
+   "link_to": "procurement-dashboard",
+   "type": "Page"
+  },
+  {
+   "doc_view": "List",
+   "label": "Material Request",
+   "link_to": "Material Request",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Purchase Order",
+   "link_to": "Purchase Order",
+   "type": "DocType"
+  },
+  {
+   "label": "Site Ops Settings",
+   "link_to": "Site Ops Settings",
+   "type": "DocType"
+  }
+ ],
+ "title": "Site Ops"
+}

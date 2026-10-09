@@ -1,0 +1,26 @@
+<p>{{ _("The following items are at or below their reorder level.") }}</p>
+
+<table style="border-collapse: collapse; width: 100%; font-size: 13px;">
+  <thead>
+    <tr style="background: #f4f5f6; text-align: left;">
+      <th style="padding: 6px 8px; border: 1px solid #d1d8dd;">{{ _("Item") }}</th>
+      <th style="padding: 6px 8px; border: 1px solid #d1d8dd;">{{ _("Warehouse") }}</th>
+      <th style="padding: 6px 8px; border: 1px solid #d1d8dd; text-align: right;">{{ _("On Hand") }}</th>
+      <th style="padding: 6px 8px; border: 1px solid #d1d8dd; text-align: right;">{{ _("Reorder Level") }}</th>
+      <th style="padding: 6px 8px; border: 1px solid #d1d8dd; text-align: right;">{{ _("Reorder Qty") }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in items %}
+    <tr>
+      <td style="padding: 6px 8px; border: 1px solid #d1d8dd;">{{ row.item_code }}{% if row.item_name and row.item_name != row.item_code %} - {{ row.item_name }}{% endif %}</td>
+      <td style="padding: 6px 8px; border: 1px solid #d1d8dd;">{{ row.warehouse }}</td>
+      <td style="padding: 6px 8px; border: 1px solid #d1d8dd; text-align: right;">{{ "%g"|format(row.actual_qty) }}</td>
+      <td style="padding: 6px 8px; border: 1px solid #d1d8dd; text-align: right;">{{ "%g"|format(row.warehouse_reorder_level) }}</td>
+      <td style="padding: 6px 8px; border: 1px solid #d1d8dd; text-align: right;">{{ "%g"|format(row.warehouse_reorder_qty or 0) }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p style="margin-top: 16px;"><a href="{{ dashboard_url }}">{{ _("Open Procurement Dashboard") }}</a></p>

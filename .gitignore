@@ -1,0 +1,10 @@
+*.pyc
+*.egg-info/
+__pycache__/
+.DS_Store
+node_modules/
+dist/
+build/
+.vscode/
+.idea/
+.ruff_cache/

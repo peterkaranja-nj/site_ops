@@ -1,0 +1,150 @@
+[
+ {
+  "doctype": "Workflow",
+  "document_type": "Purchase Requisition",
+  "is_active": 1,
+  "name": "Purchase Requisition Approval",
+  "override_status": 0,
+  "send_email_alert": 1,
+  "states": [
+   {
+    "allow_edit": "Site Requester",
+    "doc_status": "0",
+    "doctype": "Workflow Document State",
+    "state": "Draft"
+   },
+   {
+    "allow_edit": "Site Manager",
+    "doc_status": "0",
+    "doctype": "Workflow Document State",
+    "state": "Pending Site Manager"
+   },
+   {
+    "allow_edit": "Procurement Officer",
+    "doc_status": "0",
+    "doctype": "Workflow Document State",
+    "state": "Pending Procurement"
+   },
+   {
+    "allow_edit": "Procurement Director",
+    "doc_status": "0",
+    "doctype": "Workflow Document State",
+    "state": "Pending Director"
+   },
+   {
+    "allow_edit": "Site Requester",
+    "doc_status": "0",
+    "doctype": "Workflow Document State",
+    "state": "Rejected"
+   },
+   {
+    "allow_edit": "Procurement Director",
+    "doc_status": "1",
+    "doctype": "Workflow Document State",
+    "state": "Approved"
+   },
+   {
+    "allow_edit": "Procurement Director",
+    "doc_status": "2",
+    "doctype": "Workflow Document State",
+    "state": "Cancelled"
+   }
+  ],
+  "transitions": [
+   {
+    "action": "Submit for Approval",
+    "allow_self_approval": 1,
+    "allowed": "Site Requester",
+    "doctype": "Workflow Transition",
+    "next_state": "Pending Site Manager",
+    "send_email_to_creator": 0,
+    "state": "Draft"
+   },
+   {
+    "action": "Approve",
+    "allow_self_approval": 0,
+    "allowed": "Site Manager",
+    "doctype": "Workflow Transition",
+    "next_state": "Pending Procurement",
+    "send_email_to_creator": 0,
+    "state": "Pending Site Manager"
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 0,
+    "allowed": "Site Manager",
+    "doctype": "Workflow Transition",
+    "next_state": "Rejected",
+    "send_email_to_creator": 1,
+    "state": "Pending Site Manager"
+   },
+   {
+    "action": "Approve",
+    "allow_self_approval": 0,
+    "allowed": "Procurement Officer",
+    "condition": "doc.requires_director",
+    "doctype": "Workflow Transition",
+    "next_state": "Pending Director",
+    "send_email_to_creator": 0,
+    "state": "Pending Procurement"
+   },
+   {
+    "action": "Approve",
+    "allow_self_approval": 0,
+    "allowed": "Procurement Officer",
+    "condition": "not doc.requires_director",
+    "doctype": "Workflow Transition",
+    "next_state": "Approved",
+    "send_email_to_creator": 1,
+    "state": "Pending Procurement"
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 0,
+    "allowed": "Procurement Officer",
+    "doctype": "Workflow Transition",
+    "next_state": "Rejected",
+    "send_email_to_creator": 1,
+    "state": "Pending Procurement"
+   },
+   {
+    "action": "Approve",
+    "allow_self_approval": 0,
+    "allowed": "Procurement Director",
+    "doctype": "Workflow Transition",
+    "next_state": "Approved",
+    "send_email_to_creator": 1,
+    "state": "Pending Director"
+   },
+   {
+    "action": "Reject",
+    "allow_self_approval": 0,
+    "allowed": "Procurement Director",
+    "doctype": "Workflow Transition",
+    "next_state": "Rejected",
+    "send_email_to_creator": 1,
+    "state": "Pending Director"
+   },
+   {
+    "action": "Reopen",
+    "allow_self_approval": 1,
+    "allowed": "Site Requester",
+    "doctype": "Workflow Transition",
+    "next_state": "Draft",
+    "send_email_to_creator": 0,
+    "state": "Rejected"
+   },
+   {
+    "action": "Cancel",
+    "allow_self_approval": 1,
+    "allowed": "Procurement Director",
+    "doctype": "Workflow Transition",
+    "next_state": "Cancelled",
+    "send_email_to_creator": 0,
+    "state": "Approved"
+   }
+  ],
+  "workflow_name": "Purchase Requisition Approval",
+  "workflow_state_field": "workflow_state"
+ }
+]
